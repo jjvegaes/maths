@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Stanford Engineering Everywhere | Frequently Asked Questions (FAQ)</title>
+    <meta name="description" content="Frequently Asked Questions (FAQ) for the Stanford Engineering Everywhere platform." />
+    <meta name="keywords" content="Stanford University, School of Engineering, Artificial Intelligence, Linear Systems, Computer Science" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Content/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/classx.min.css" />
+    <link rel="stylesheet" href="Content/Site.css" />
+    <script src="js/modernizr.min.js"></script>
+</head>
+
+<body class="page--home">
+
+    <div id="page">
+
+
+        <div class="master-header">
+            <div class="container">
+                <h3 class="master-header-logo"><a href="http://stanford.edu/">Stanford University</a></h3>
+            </div>
+        </div>
+
+        <div class="master-navigation">
+            <div class="container">
+                <div class="wrapper">
+                    <header class="master-navigation-header">
+                        <h2 class="master-navigation-stanford-engineering"><a href="https://engineering.stanford.edu/">stanford engineering</a></h2>
+                        <h1 class="master-navigation-classx" id="desktopLogo"><a href="index.html"><i></i><span>S</span>tanford <span>E</span>ngineering <span>E</span>verywhere</a></h1>
+                        <h1 class="master-navigation-classx" id="mobileLogo"><a href="index.html"><i></i><span>S</span>EE</a></h1>
+                        <a href="UsingSEE#mobile" class="master-navigation-mobile">Menu</a>
+                    </header>
+
+                    <hr class="master-navigation-divider">
+
+                    <nav role="navigation" class="master-navigation-navbar">
+                        <ul class="master-navigation-navbar-primary">
+                            <li class=""><a href="index.html">Home</a></li>
+                            <li class=""><a href="Course.3">Courses</a></li>
+                            <li class="active"><a href="UsingSEE">Using SEE</a></li>
+                        </ul>
+                        <ul class="master-navigation-navbar-secondary">
+                            <li><a href="https://stanforduniversity.qualtrics.com/SE/?SID=SV_9YwWLNU4dN9WKWM" target="_blank">Survey</a></li>
+                            <li><a href="mailto:see-information@lists.stanford.edu">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="master-content">
+            <div class="container">
+                
+<div class="page-header" id="top">
+    <h1 class="page-title">Frequently Asked Questions</h1>
+</div>
+
+<div class="text-center">
+    <ul class="list-inline">
+        <li><a href="UsingSEE#about">About SEE</a></li>
+        <li><a href="UsingSEE#using">Using SEE</a></li>
+        <li><a href="UsingSEE#technical">Technical Questions</a></li>
+    </ul>
+</div>
+
+<div class="heading">
+    <h1 id="about">FAQ - About SEE</h1>
+</div>
+
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>1. Why has Stanford chosen to make courses available for free?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            Stanford and the School of Engineering believe that technology transfer is an important part of its mission. This includes research and teaching. SEE is an important step in making
+            important pieces of its curriculum available to a broad audience.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>2. How is SEE being funded?</h2>
+    </div>
+    <div class="panel-content">
+        <p>SEE's pilot program was funded by Sequoia Capital, the Silicon Valley venture capital firm that helped launch Cisco, Google, Yahoo, NVidia and many other successful technology startups.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>3. How did you decide which courses to offer?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            The introductory Computer Science courses provide a powerful platform for a wide variety of students both within and beyond Stanford. Computer Science and Electrical Engineering
+            faculty also raised their hands to offer more advanced courses in Artificial Intelligence, and Linear Systems & Optimization for SEE’s pilot.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>4. When will additional courses be added?</h2>
+    </div>
+    <div class="panel-content">
+        <p>The SEE pilot has ended. No new courses will be added.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>5. Are the SEE offerings based on Stanford courses?</h2>
+    </div>
+    <div class="panel-content">
+        <p>Yes. SEE courses include the content offered in an actual campus course including lecture videos, as well as all lecture slides, reading lists and handouts, homework assignments, quizzes, examinations, and when appropriate, solution sets.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>6. Can SEE content be reused or incorporated into other courses or media?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            SEE content is protected by the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a>)
+            some cases also protected by the original content creators' own copyright. Through the Creative Commons license, content can be reused in non-commercial offerings provided full attribution to the original creator is given. In some cases
+            content is additionally protected by full copyright protection and as such cannot be re-used without explicit permission from the original copyright holder (content that falls under this additional copyright protection will be explicitly noted).
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>7. What is the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            This license allows for original content to be the remixed, tweaked, and built into new non-commercial content as long as the original source is credited and the new creations are distributed under
+            the identical terms. All newly created content will fall under this same Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license. For more information please visit:
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a>
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>8. I own the copyright to some of the content used in a lecture and have not granted permission to use the content. Please remove it immediately.</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            Stanford has taken steps to secure permission to use the copyrighted content contained in SEE offerings when use of the content is outside of the fair use doctrine of US copyright law. If you
+            are the rights holder of any images in these offerings and have concerns, please contact <a href="mailto:chris.kong@stanford.edu">chris.kong@stanford.edu</a> and we will immediately review your issues.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>9. How can I provide feedback on SEE?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            We encourage feedback from users on the effectiveness of SEE, how the courses are being used, what features are important to you, what subject areas we should consider offering in the future, etc. We are
+            asking users to complete a <a href="http://www.zoomerang.com/Survey/?p=WEB2288WDT6QAU" target="_blank">survey</a> and/or to send comments to <a href="mailto:see-information@lists.stanford.edu">see-information@lists.stanford.edu</a>.
+        </p>
+    </div>
+</div>
+
+<div class="text-center">
+    <a href="UsingSEE#top">Back to Top</a>
+</div>
+
+<div class="heading">
+    <h1 id="using">FAQ - Using SEE</h1>
+</div>
+
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>1. Do I need to register to access SEE?</h2>
+    </div>
+    <div class="panel-content">
+        <p>No, SEE is free and does not require registration.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>2. Will I receive credit for taking courses through SEE?</h2>
+    </div>
+    <div class="panel-content">
+        <p>No. Although SEE courses are identical to those taken by Stanford students, you will not receive Stanford credit.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>3. Will I receive feedback on the homework assignments, examinations, labs, or programming assignments that I complete?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            No. SEE does not offer an open communication channel to the course instructors and professors. In most cases, solution sets are included. However, there may be instances where solutions
+            are not offered since the problem sets may be re-used in future course offerings or are similar to problems being used by other instructors.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>4. Can I ask course instructors or professors questions regarding course content?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            No. SEE is intended to make Stanford course content available to the public. Unfortunately because this audience is vast, instructors and professors will not be available to answer questions
+            or respond to personal e-mails. In addition, we hope that our online communities will provide a resource for SEE students to discuss coursework.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>5. I am formally enrolled as a Stanford student and am taking courses online via the Stanford Center for Professional Development. Why can’t I download lecture videos for all my online courses?</h2>
+    </div>
+    <div class="panel-content">
+        <p>The content used by SEE has been cleared of all copyright issues. SCPD courses have not been cleared in the same way, which prevents the downloading of their courses.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>6. Can my institution repurpose SEE content into full courses and offer Stanford accreditation?</h2>
+    </div>
+    <div class="panel-content">
+        <p>SEE content may be repurposed by other educational institutions; however, Stanford will not accredit any programs that repurpose SEE content into their academic programs.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>7. It appears that in some cases content has been removed from the lecture videos or course materials. Why?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            For some content used in the on-campus offerings, the copyright belongs to a third-party. We removed such material whenever we could not secure permission to include
+            this content in the online offerings. In most cases, the deletion is noted.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>8. Some of the programming assignments require connecting to Stanford servers to run various pieces of software. Will I have access to this software?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            Users of SEE will not have access to these Stanford servers and software. In most cases Stanford has secured a site license to allow its students to access the software. Similar software is
+            generally available to the public for purchase or download.
+        </p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>9. What is a SUNet ID and will I receive one?</h2>
+    </div>
+    <div class="panel-content">
+        <p>SUNetID’s are accounts available only to Stanford students and staff. These accounts grant access to Stanford’s network of computer systems and resources.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>10. Can I download lecture material?</h2>
+    </div>
+    <div class="panel-content">
+        <p>Yes, all the content offered through SEE is available for download. You can freely download the PDF documents from the site itself. The option to download the videos is available right from the HTML5-based video player.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>11. Can I download the complete course?</h2>
+    </div>
+    <div class="panel-content">
+        <p>We have created Zip files of all non-video content for each course so that users do not have to download individual files. Due to the size of video files, each lecture must be downloaded separately.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>12. Why aren’t course packs available for download?</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            The majority of course packs contain material that has been photocopied from published books and other copyrighted material. Due to copyright issues associated with the materials contained in
+            the readers they cannot be offered online. Much of the content found in the course readers can be found in online journals and in other publications available to the public.
+        </p>
+    </div>
+</div>
+
+<div class="text-center">
+    <a href="UsingSEE#top">Back to Top</a>
+</div>
+
+<div class="heading">
+    <h1 id="technical">FAQ - Technical Questions</h1>
+</div>
+
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>1. What software is required to view the Stanford Engineering Everywhere content?</h2>
+    </div>
+    <div class="panel-content">
+        <p>Depending on the asset and file-type being viewed, there are several pieces of software that may be required:</p>
+        <ul id="bullet">
+
+            <li>
+                .mp4 (MPEG-4 video) - VLC player (<a href="http://www.videolan.org/vlc/" target="_blank">http://www.videolan.org/vlc/</a>), QuickTime Player (<a href="http://www.apple.com/quicktime/download/" target="_blank">http://www.apple.com/quicktime/download/</a>)
+            </li>
+            <li>
+                .pdf (Portable Document Format) - Adobe Reader (<a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">http://www.adobe.com/products/acrobat/readstep2.html</a>)
+            </li>
+            <!--<li>
+                .wmv (Windows Media Video) - Microsoft Windows Media Player
+                (<a href="http://www.microsoft.com/windows/windowsmedia/download/AllDownloads.aspx" target="_blank">http://www.microsoft.com/windows/windowsmedia/download/AllDownloads.aspx</a>)
+            </li>
+            <li>
+                .flv (Flash Video) - Adobe Flash Player (<a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank">http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash</a>)
+            </li>
+            <li>
+                .torrent (BitTorrent file) - BitTorrent client (<a href="http://www.bittorrent.com/download?csrc=splash" target="_blank">http://www.bittorrent.com/download?csrc=splash</a>)
+            </li>-->
+
+        </ul>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>2. What are the system requirements to view the videos:</h2>
+    </div>
+    <div class="panel-content">
+        <p>
+            SEE offers several options for viewing
+            videos including an enhanced HTML5-based user interface, and videos
+            on YouTube and iTunes.
+        </p>
+        <ul id="bullet">
+            <li>
+                Enhanced HTML5-based User Interface:
+                <ul id="bullet">
+                    <li>
+                        PC:
+                        <ul id="bullet">
+                            <li>Operating System: Windows Vista, Windows 7, or Windows 8+</li>
+                            <li>Browser: HTML 5 supported web browser: IE9+, Firefox24+, Chrome22+</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Mac:
+                        <ul id="bullet">
+                            <li>Operating System: Mac OS X version 10.4+</li>
+                            <li>Browser: HTML 5 supported web browser: Safari7+, Firefox24+, Chrome22+</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Mobile Devices:
+                        <ul id="bullet">
+                            <li>Browser: HTML 5 supported web browser: Safari, IE desktop, Firefox, Chrome</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Linux:
+                        <ul id="bullet">
+                            <li>Browser: HTML 5 supported web browser</li>
+                        </ul>
+                    </li>
+                    <li>Network Connection: High-speed network connection (DSL+) for streaming</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>3. When I click on a link I receive the error “File not found” or “This page cannot be found”.</h2>
+    </div>
+    <div class="panel-content">
+        <p>It likely means a URL has been changed or a file has been removed. Please send us an <a href="mailto:see-information@lists.stanford.edu">email</a> specifying  where the error is occurring.</p>
+    </div>
+</div>
+<div class="panel panel-collapsable">
+    <div class="panel-heading">
+        <h2>4. I cannot open the downloadable documents.</h2>
+    </div>
+    <div class="panel-content">
+        <p>The majority of documents are offered in PDF format. Please download and install the  <a href="http://www.adobe.com/products/acrobat/readstep2.html" target="_blank">Adobe Acrobat Reader</a> to view.</p>
+    </div>
+</div>
+
+<div class="text-center">
+    <a href="UsingSEE#top">Back to Top</a>
+</div>
+
+                
+            </div>
+        </div>
+
+        <div class="master-footer-primary">
+            <div class="container">
+                <h2 class="footer-primary-logo"><a href="http://scpd.stanford.edu/">Stanford Center for Professional Development</a></h2>
+
+                <nav class="footer-primary-links">
+                    <ul>
+                        <li><a href="http://scpd.stanford.edu/about-us/contact" target="_blank">Contact Us</a></li>
+                        <li><a href="http://scpd.stanford.edu/accessibility" target="_blank">Accessibility Information</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-primary-social-media">
+                    <ul>
+                        <li><a href="https://www.facebook.com/StanfordProfessionalDevelopment" class="icon-facebook">Facebook</a></li>
+                        <li><a href="https://twitter.com/StanfordCPD" class="icon-twitter">Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/groups?trk=anetsrch_name&goback=.gdr_1280870667894_3&gid=3265054" class="icon-linkedin">LinkedIn</a></li>
+                        <li><a href="https://www.youtube.com/stanfordonline" class="icon-youtube">YouTube</a></li>
+                        <li><a href="https://plus.google.com/108766063822173998021/posts" class="icon-google">Google+</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="master-footer-secondary">
+            <div class="container">
+                <h3 class="footer-secondary-logo"><a href="http://www.stanford.edu/">Stanford University</a></h3>
+
+                <div class="footer-secondary-content">
+                    <ul>
+                        <li><a href="http://www.stanford.edu/">SU Home</a></li>
+                        <li><a href="http://www.stanford.edu/dept/visitorinfo/plan/maps.html">Maps &amp; Directions</a></li>
+                        <li><a href="http://stanford.edu/search/">Search Stanford</a></li>
+                        <li><a href="http://stanford.edu/site/terms.html">Terms of Use</a></li>
+                        <li><a href="http://www.stanford.edu/group/security/dmca.html">Copyright Complaints</a></li>
+                    </ul>
+                    <p>&copy; Stanford University, Stanford, California 94305</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- required global scripts -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/classx.min.js"></script>
+    <script src="Scripts/collapse.js"></script>
+    
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-63554498-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>
+

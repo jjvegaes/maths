@@ -1,3 +1,3 @@
 ## [Coursera Machine Learning](https://www.coursera.org/learn/machine-learning/)
 
-assignments and notes from the course by Andrew Ng
+lecture notes and assignments from the course taught by Andrew Ng

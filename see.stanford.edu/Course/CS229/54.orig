@@ -1,0 +1,1626 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Stanford Engineering Everywhere | CS229 - Machine Learning | Lecture 2 - An Application of Supervised Learning - Autonomous Deriving</title>
+    <meta name="description" content="This course provides a broad introduction to machine learning and statistical pattern recognition. &lt;br&gt;&lt;br&gt;
+Topics include: supervised learning (generative/discriminative learning, parametric/non-parametric learning, neural networks, support vector machines); unsupervised learning (clustering,
+dimensionality reduction, kernel methods); learning theory (bias/variance tradeoffs; VC theory; large margins); reinforcement learning and adaptive control. &lt;br&gt;The course will also discuss recent applications of machine learning, such as to robotic control, data mining, autonomous navigation, bioinformatics, speech recognition, and text and web data processing.&lt;br&gt;
+Students are expected to have the following background:&lt;br&gt;&lt;br&gt;
+Prerequisites:
+-  Knowledge of basic computer science principles and skills, at a level sufficient to write a reasonably non-trivial computer program.&lt;br&gt;
+-  Familiarity with the basic probability theory. (Stat 116 is sufficient but not necessary.)&lt;br&gt;
+-  Familiarity with the basic linear algebra (any one of Math 51, Math 103, Math 113, or CS 205 would be much more than necessary.)
+" />
+    <meta name="keywords" content="An Application of Supervised Learning - Autonomous Deriving, ALVINN, Linear Regression, Gradient Descent, Batch Gradient Descent, Stochastic Gradient Descent (Incremental Descent), Matrix Derivative Notation for Deriving Normal Equations, Derivation of Normal Equations, Stanford University, School of Engineering, Artificial Intelligence, Linear Systems, Computer Science" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/Content/favicon.ico" type="image/x-icon" />
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/classx.min.css" />
+    <link rel="stylesheet" href="/Content/Site.css" />
+    <script src="/js/modernizr.min.js"></script>
+</head>
+
+<body class="page--home">
+
+    <div id="page">
+
+
+        <div class="master-header">
+            <div class="container">
+                <h3 class="master-header-logo"><a href="http://stanford.edu/">Stanford University</a></h3>
+            </div>
+        </div>
+
+        <div class="master-navigation">
+            <div class="container">
+                <div class="wrapper">
+                    <header class="master-navigation-header">
+                        <h2 class="master-navigation-stanford-engineering"><a href="https://engineering.stanford.edu/">stanford engineering</a></h2>
+                        <h1 class="master-navigation-classx" id="desktopLogo"><a href="/"><i></i><span>S</span>tanford <span>E</span>ngineering <span>E</span>verywhere</a></h1>
+                        <h1 class="master-navigation-classx" id="mobileLogo"><a href="/"><i></i><span>S</span>EE</a></h1>
+                        <a href="#mobile" class="master-navigation-mobile">Menu</a>
+                    </header>
+
+                    <hr class="master-navigation-divider">
+
+                    <nav role="navigation" class="master-navigation-navbar">
+                        <ul class="master-navigation-navbar-primary">
+                            <li class=""><a href="/">Home</a></li>
+                            <li class="active"><a href="/Course">Courses</a></li>
+                            <li class=""><a href="/UsingSEE">Using SEE</a></li>
+                        </ul>
+                        <ul class="master-navigation-navbar-secondary">
+                            <li><a href="https://stanforduniversity.qualtrics.com/SE/?SID=SV_9YwWLNU4dN9WKWM" target="_blank">Survey</a></li>
+                            <li><a href="mailto:see-information@lists.stanford.edu">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="master-content">
+            <div class="container">
+                
+<link href="/Content/Supplements.css" rel="stylesheet" />
+
+<div class="page-header">
+    <h1 class="page-title">CS229 - Machine Learning</h1>
+</div>
+
+    <div id="videoArea">
+<input type="hidden" id="TotalLectures" value="20" />
+<input type="hidden" id="SelectedLectureNumber" value="2" />
+
+<div class="video-player">
+    <div class="video-player-media">
+        <div class="video-player-player">
+            <div class="scpd-player-header">
+                <h2>Lecture 2 - An Application of Supervised Learning - Autonomous Deriving</h2>
+            </div>
+
+            <div id="myElement"></div>
+
+
+            <script src="/JWPlayer/jwplayer.js"></script>
+            <script type="text/javascript">jwplayer.key = "8HMTAc/yzx7s7rmHsHqOK6QmYy1GXZ+6L9TzmvnHg8E=";</script>
+            <script type="text/javascript">
+
+                jwplayer("myElement").setup({
+                    aspectratio: "16:9",
+                    width: "100%",
+                    skin: "/JWPlayer/glow.xml",
+                    //file: "http://html5b.stanford.edu/videos/courses/see/cs106a-lecture02-main.mp4",
+                    file: "http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture02.mp4",
+                    abouttext: "Stanford Center for Professional Development",
+                    aboutlink: "#",
+                    autostart: true,
+                    tracks: [{
+                        file: "/Captions/CS229/CS229-lecture02.vtt",
+                        label: "English",
+                        kind: "captions",
+                        "default": false
+                    }]
+                });
+            </script>
+
+
+        </div>
+        <a href="#toggle" class="video-player-toggle" title="Expand/Collapse Video"><i>Expand/Collapse Video</i></a>
+    </div>
+    <div class="video-player-tools">
+        <div class="video-player-content">
+
+            <ul class="video-player-tabs">
+
+                <li class="video-player-tab bookmarks active"><a href="javascript:void(0)"><i>Bookmarks</i></a></li>
+
+                <li class="video-player-tab playlist "><a href="javascript:void(0)"><i>Playlist</i></a></li>
+
+                <li class="video-player-tab info"><a href="javascript:void(0)"><i>Info</i></a></li>
+            </ul>
+
+            <ul class="list-unstyled tabContentArea">
+                <li class="bookmarkList">
+                    <div class="video-player-heading">
+                        Bookmarks
+                    </div>
+
+                    <div class="video-player-scrollable">
+                        <ul class="video-player-list">
+
+                                <li>
+                                    <a href="javascript:JumpToBookmark(146)">00:02:26</a>
+                                    <p class="video-player-bookmark-notes">An Application Of Supervised Learning : Autonomous Deriving, ALVINN</p>
+                                </li>
+                                <li>
+                                    <a href="javascript:JumpToBookmark(575)">00:09:35</a>
+                                    <p class="video-player-bookmark-notes">Linear Regression</p>
+                                </li>
+                                <li>
+                                    <a href="javascript:JumpToBookmark(1577)">00:26:17</a>
+                                    <p class="video-player-bookmark-notes">Gradient Descent</p>
+                                </li>
+                                <li>
+                                    <a href="javascript:JumpToBookmark(2662)">00:44:22</a>
+                                    <p class="video-player-bookmark-notes">Batch Gradient Descent</p>
+                                </li>
+                                <li>
+                                    <a href="javascript:JumpToBookmark(2741)">00:45:41</a>
+                                    <p class="video-player-bookmark-notes">Stochastic Gradient Descent (Incremental Descent)</p>
+                                </li>
+                                <li>
+                                    <a href="javascript:JumpToBookmark(3060)">00:51:00</a>
+                                    <p class="video-player-bookmark-notes">Matrix Derivative Notation For Deriving Normal Equations</p>
+                                </li>
+                                <li>
+                                    <a href="javascript:JumpToBookmark(3614)">01:00:14</a>
+                                    <p class="video-player-bookmark-notes">Derivation Of Normal Equations</p>
+                                </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="lectureList" style="display: none">
+                    <div class="video-player-heading">
+                        Lectures
+                    </div>
+
+                    <div class="video-player-scrollable" id="video-player-scrollable-context">
+                        <ul class="video-player-list">
+
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(47, 4)">
+                                        1 - The Motivation &amp; Applications of Machine Learning
+                                    </a>
+                                </li>
+                                <li class="selectedLectureElement">
+                                    <a class="activeLecture" href="javascript:LoadVideo(54, 4)">
+                                        2 - An Application of Supervised Learning - Autonomous Deriving
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(42, 4)">
+                                        3 - The Concept of Underfitting and Overfitting
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(49, 4)">
+                                        4 - Newton&#39;s Method
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(50, 4)">
+                                        5 - Discriminative Algorithms
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(44, 4)">
+                                        6 - Multinomial Event Model
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(37, 4)">
+                                        7 - Optimal Margin Classifier
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(39, 4)">
+                                        8 - Kernels
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(53, 4)">
+                                        9 - Bias/variance Tradeoff
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(55, 4)">
+                                        10 - Uniform Convergence - The Case of Infinite H
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(36, 4)">
+                                        11 - Bayesian Statistics and Regularization
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(43, 4)">
+                                        12 - The Concept of Unsupervised Learning
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(40, 4)">
+                                        13 - Mixture of Gaussian
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(48, 4)">
+                                        14 - The Factor Analysis Model
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(45, 4)">
+                                        15 - Latent Semantic Indexing (LSI)
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(38, 4)">
+                                        16 - Applications of Reinforcement Learning
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(41, 4)">
+                                        17 - Generalization to Continuous States
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(46, 4)">
+                                        18 - State-action Rewards
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(52, 4)">
+                                        19 - Advice for Applying Machine Learning
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="javascript:LoadVideo(51, 4)">
+                                        20 - Partially Observable MDPs (POMDPs)
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="lectureInfo" style="display: none">
+                    <div class="video-player-heading">
+                        About the Lecture
+                    </div>
+
+                    <div class="video-player-scrollable">
+
+                        <dl class="video-player-info">
+                            <dt>TITLE:</dt>
+                            <dd class="video-player-info-title">Lecture 2 - An Application of Supervised Learning - Autonomous Deriving</dd>
+
+                            <dt>DURATION:</dt>
+                            <dd class="video-player-info-duration">1 hr 16 min</dd>
+
+                            <dt>TOPICS:</dt>
+
+                            <dd class="video-player-info-tags">
+                                    <button class="video-player-tag" style="cursor: default">An Application of Supervised Learning - Autonomous Deriving</button>
+                                    <button class="video-player-tag" style="cursor: default"> ALVINN</button>
+                                    <button class="video-player-tag" style="cursor: default"> Linear Regression</button>
+                                    <button class="video-player-tag" style="cursor: default"> Gradient Descent</button>
+                                    <button class="video-player-tag" style="cursor: default"> Batch Gradient Descent</button>
+                                    <button class="video-player-tag" style="cursor: default"> Stochastic Gradient Descent (Incremental Descent)</button>
+                                    <button class="video-player-tag" style="cursor: default"> Matrix Derivative Notation for Deriving Normal Equations</button>
+                                    <button class="video-player-tag" style="cursor: default"> Derivation of Normal Equations</button>
+                            </dd>
+                        </dl>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    </div>
+
+<div class="row">
+    <div class="col-50">
+        <div class="collapsables" id="course-details">
+
+            <div class="heading heading-dark" style="margin-bottom: 15px">
+                <h2 class="pull-left">Course Details</h2>
+                <a href="#course-details" class="pull-right" rel="collapsables">Show All</a>
+            </div>
+
+            <div class="panel panel-collapsable is-expanded">
+                <div class="panel-heading">
+                    <h2>Course Description</h2>
+                </div>
+                <div class="panel-content">
+                    <p>This course provides a broad introduction to machine learning and statistical pattern recognition. <br><br>
+Topics include: supervised learning (generative/discriminative learning, parametric/non-parametric learning, neural networks, support vector machines); unsupervised learning (clustering,
+dimensionality reduction, kernel methods); learning theory (bias/variance tradeoffs; VC theory; large margins); reinforcement learning and adaptive control. <br>The course will also discuss recent applications of machine learning, such as to robotic control, data mining, autonomous navigation, bioinformatics, speech recognition, and text and web data processing.<br>
+Students are expected to have the following background:<br><br>
+Prerequisites:
+-  Knowledge of basic computer science principles and skills, at a level sufficient to write a reasonably non-trivial computer program.<br>
+-  Familiarity with the basic probability theory. (Stat 116 is sufficient but not necessary.)<br>
+-  Familiarity with the basic linear algebra (any one of Math 51, Math 103, Math 113, or CS 205 would be much more than necessary.)
+</p>
+                    <ul>
+                        <li><a href="/materials/aimlcs229/info.pdf" target="_blank">Syllabus</a></li>
+                        <li><a href="/materials/aimlcs229/MachineLearningAllMaterials.zip">DOWNLOAD All Course Materials</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="panel panel-collapsable">
+                <div class="panel-heading">
+                    <h2>Instructor</h2>
+                </div>
+                <div class="panel-content instructor-bio-panel">
+                    <div class="media media-right" style="width: 150px">
+                        <img src="/Content/Images/Instructors/ng.jpg" alt="FPO">
+                        <p>Ng, Andrew</p>
+                    </div>
+                    <p>Ng's research is in the areas of machine learning and artificial intelligence. He leads the STAIR (STanford Artificial Intelligence Robot) project, whose goal is to develop a home assistant robot that can perform tasks such as tidy up a room, load/unload a dishwasher, fetch and deliver items, and prepare meals using a kitchen. Since its birth in 1956, the AI dream has been to build systems that exhibit "broad spectrum" intelligence. However, AI has since splintered into many different subfields, such as machine learning, vision, navigation, reasoning, planning, and natural language processing. To realize its vision of a home assistant robot, STAIR will unify into a single platform tools drawn from all of these AI subfields. This is in distinct contrast to the 30-year-old trend of working on fragmented AI sub-fields, so that STAIR is also a unique vehicle for driving forward research towards true, integrated AI.
+<p>
+Ng also works on machine learning algorithms for robotic control, in which rather than relying on months of human hand-engineering to design a controller, a robot instead learns automatically how best to control itself. Using this approach, Ng's group has developed by far the most advanced autonomous helicopter controller, that is capable of flying spectacular aerobatic maneuvers that even experienced human pilots often find extremely difficult to execute. As part of this work, Ng's group also developed algorithms that can take a single image,and turn the picture into a 3-D model that one can fly-through and see from different angles. </p>
+                </div>
+            </div>
+
+                <div class="panel panel-collapsable">
+                    <div class="panel-heading">
+                        <h2>Handouts</h2>
+                    </div>
+                    <div class="panel-content">
+<div class="heading" style="margin-top: 0">
+    <h3>Course Handouts</h3>
+</div>
+
+<table>
+    <tbody>
+        <tr>
+            <td><a href="/materials/aimlcs229/info.pdf" target="_blank">info.pdf</a></td>
+            <td>Course Information</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/schedule.pdf" target="_blank">schedule.pdf</a></td>
+            <td>Course Schedule</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/AI-classes.pdf" target="_blank">AI-classes.pdf</a></td>
+            <td>Other AI Courses</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="heading" style="margin-top: 0">
+    <h3>Lecture Handouts</h3>
+</div>
+
+<table>
+    <tbody>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes1.pdf" target="_blank">cs229-notes1.pdf</a></td>
+            <td>Linear Regression, Classification and logistic regression, Generalized Linear Models</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes2.pdf" target="_blank">cs229-notes2.pdf</a></td>
+            <td>Generative Learning algorithms</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes3.pdf" target="_blank">cs229-notes3.pdf</a></td>
+            <td>Support Vector Machines</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes4.pdf" target="_blank">cs229-notes4.pdf</a></td>
+            <td>Learning Theory</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes5.pdf" target="_blank">cs229-notes5.pdf</a></td>
+            <td>Regularization and model selection</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes6.pdf" target="_blank">cs229-notes6.pdf</a></td>
+            <td>The perceptron and large margin classifiers</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes7a.pdf" target="_blank">cs229-notes7a.pdf</a></td>
+            <td>The k-means clustering algorithm</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes7b.pdf" target="_blank">cs229-notes7b.pdf</a></td>
+            <td>Mixtures of Gaussians and the EM algorithm</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes8.pdf" target="_blank">cs229-notes8.pdf</a></td>
+            <td>The EM algorithm</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes9.pdf" target="_blank">cs229-notes9.pdf</a></td>
+            <td>Factor analysis</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes10.pdf" target="_blank">cs229-notes10.pdf</a></td>
+            <td>Principal components analysis</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes11.pdf" target="_blank">cs229-notes11.pdf</a></td>
+            <td>Independent Components Analysis</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/cs229-notes12.pdf" target="_blank">cs229-notes12.pdf</a></td>
+            <td>Reinforcement Learning and Control</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="heading" style="margin-top: 0">
+    <h3>Review Notes</h3>
+</div>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Linear Algebra Review and Reference</td>
+            <td><a href="/materials/aimlcs229/cs229-linalg.pdf" target="_blank">cs229-linalg.pdf</a></td>
+        </tr>
+        <tr>
+            <td>Probability Theory Review</td>
+            <td><a href="/materials/aimlcs229/cs229-prob.pdf" target="_blank">cs229-prob.pdf</a></td>
+        </tr>
+        <tr>
+            <td>Matlab Review</td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><a href="/materials/aimlcs229/logistic_grad_ascent.txt">logistic_grad_ascent.txt</a></td>
+                            <td><a href="/materials/aimlcs229/sigmoid.txt">sigmoid.txt</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="/materials/aimlcs229/matlab_session.txt">matlab_session.txt</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Convex Optimization Overview, Part I</td>
+            <td><a href="/materials/aimlcs229/cs229-cvxopt.pdf" target="_blank">cs229-cvxopt.pdf</a></td>
+        </tr>
+        <tr>
+            <td>Convex Optimization Overview, Part II</td>
+            <td><a href="/materials/aimlcs229/cs229-cvxopt2.pdf" target="_blank">cs229-cvxopt2.pdf</a></td>
+        </tr>
+        <tr>
+            <td>Hidden Markov Models</td>
+            <td><a href="/materials/aimlcs229/cs229-hmm.pdf" target="_blank">cs229-hmm.pdf</a></td>
+        </tr>
+        <tr>
+            <td>Gaussian Processes</td>
+            <td>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><a href="/materials/aimlcs229/cs229-gp.pdf" target="_blank">cs229-gp.pdf</a></td>
+                            <td><a href="/materials/aimlcs229/compute_kernel_matrix.txt">compute_kernel_matrix.txt</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="/materials/aimlcs229/gp_demo.txt">gp_demo.txt</a></td>
+                            <td><a href="/materials/aimlcs229/sample_gp_prior.txt">sample_gp_prior.txt</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                    </div>
+                </div>
+
+                <div class="panel panel-collapsable">
+                    <div class="panel-heading">
+                        <h2>Resources</h2>
+                    </div>
+                    <div class="panel-content">
+<table>
+    <tbody>
+        <tr>
+            <td><strong>Advice on applying machine learning:</strong> <br />Slides from Andrew's lecture on getting machine learning algorithms to work in practice can be found <a href="/materials/aimlcs229/ML-advice.pdf" target="_blank">here</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Previous projects:</strong> <br /> A list of last year's final projects can be found <a href="http://www.stanford.edu/class/cs229/projects2006.html">here</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Matlab Resources</strong> <br /> Here are a couple of Matlab tutorials that you might find helpful: <a href="http://www.math.ufl.edu/help/matlab-tutorial">Matlab Tutorial</a> and <a href="http://www.math.mtu.edu/~msgocken/intro/node1.html">A Practical Introduction to Matlab</a>. For emacs users only: If you plan to run Matlab in emacs, here are <a href="/materials/aimlcs229/matlab_el.txt">matlab.el</a>, and a helpful <a href="/materials/aimlcs229/emacs.txt">emac's file</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Octave Resources</strong> <br /> For a free alternative to Matlab, check out <a href="http://www.gnu.org/software/octave">GNU Octave</a>. The official documentation is available <a href="http://www.gnu.org/software/octave/doc/interpreter">here</a>. Some useful tutorials on Octave include <a href="http://homepages.nyu.edu/~kpl2/dsts6/octaveTutorial.html">Octave Tutorial</a> and <a href="http://wiki.aims.ac.za/mediawiki/index.php/Octave">Octave on Wiki</a>.</td>
+        </tr>
+        <tr>
+            <td><strong>Viewing PostScript and PDF files:</strong> <br />Depending on the computer you are using, you may be able to download a <a href="http://www.cs.wisc.edu/~ghost/">PostScript viewer</a> or <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html">PDF viewer</a> for it if you don't already have one.</td>
+        </tr>
+    </tbody>
+</table>
+
+                    </div>
+                </div>
+
+                <div class="panel panel-collapsable">
+                    <div class="panel-heading">
+                        <h2>Assignments</h2>
+                    </div>
+                    <div class="panel-content">
+
+<table>
+    <tbody>
+        <tr><th>Assignment</th><th>Assignment Data Files</th><th>Solution</th><th>Solution Data Files</th></tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/problemset1.pdf" target="_blank">Problem Set 1</a></td>
+            <td><a href="/materials/aimlcs229/PS1-data.zip">PS1-data.zip</a></td>
+            <td><a href="/materials/aimlcs229/ps1_solution.pdf" target="_blank">Solution Set 1</a></td>
+            <td><a href="/materials/aimlcs229/ps1_solution-data.zip">ps1_solution-data.zip</a></td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/problemset2.pdf" target="_blank">Problem Set 2</a></td>
+            <td><a href="/materials/aimlcs229/PS2-data.zip">PS2-data.zip</a></td>
+            <td><a href="/materials/aimlcs229/ps2_solution.pdf" target="_blank">Solution Set 2</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/problemset3.pdf" target="_blank">Problem Set 3</a></td>
+            <td><a href="/materials/aimlcs229/PS3-data.zip">PS3-data.zip</a></td>
+            <td><a href="/materials/aimlcs229/ps3_solution.pdf" target="_blank">Solution Set 3</a></td>
+            <td><a href="/materials/aimlcs229/ps3_solution-data.zip">ps3_solution-data.zip</a></td>
+        </tr>
+        <tr>
+            <td><a href="/materials/aimlcs229/problemset4.pdf" target="_blank">Problem Set 4</a></td>
+            <td><a href="/materials/aimlcs229/PS4-data.zip">PS4-data.zip</a></td>
+            <td><a href="/materials/aimlcs229/ps4_solution.pdf" target="_blank">Solution Set 4</a></td>
+            <td><a href="/materials/aimlcs229/ps4_solution-data.zip">ps4_solution-data.zip</a></td>
+        </tr>
+    </tbody>
+</table>
+                    </div>
+                </div>
+
+
+
+        </div>
+    </div>
+    <div class="col-50">
+        <div class="collapsables" id="course-sessions">
+
+            <div class="heading heading-dark" style="margin-bottom: 15px">
+                <h2 class="pull-left">Course Sessions <span>(20):</span></h2>
+                <a href="#course-sessions" class="pull-right" rel="collapsables">Show All</a>
+            </div>
+
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 1</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/47" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture01.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 9 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> The Motivation & Applications of Machine Learning, The Logistics of the Class, The Definition of Machine Learning, The Overview of Supervised Learning, The Overview of Learning Theory, The Overview of Unsupervised Learning, The Overview of Reinforcement Learning
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture01.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture01.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable is-expanded">
+                    <div class="panel-heading">
+                        <h2>Lecture 2</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/54" class="btn btn-secondary " rel="player">
+                                            <i class="icon icon-play"></i> Now Playing
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture02.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 16 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> An Application of Supervised Learning - Autonomous Deriving, ALVINN, Linear Regression, Gradient Descent, Batch Gradient Descent, Stochastic Gradient Descent (Incremental Descent), Matrix Derivative Notation for Deriving Normal Equations, Derivation of Normal Equations
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture02.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture02.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 3</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/42" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture03.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 13 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> The Concept of Underfitting and Overfitting,  The Concept of Parametric Algorithms and Non-parametric Algorithms, Locally Weighted Regression, The Probabilistic Interpretation of Linear Regression, The motivation of Logistic Regression, Logistic Regression, Perceptron
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture03.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture03.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 4</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/49" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture04.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 13 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Newton's Method, Exponential Family, Bernoulli Example, Gaussian Example, General Linear Models (GLMs), Multinomial Example, Softmax Regression
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture04.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture04.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 5</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/50" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture05.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 16 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Discriminative Algorithms, Generative Algorithms, Gaussian Discriminant Analysis (GDA), GDA and Logistic Regression, Naive Bayes, Laplace Smoothing
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture05.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture05.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 6</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/44" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture06.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 14 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Multinomial Event Model, Non-linear Classifiers, Neural Network, Applications of Neural Network, Intuitions about Support Vector Machine (SVM), Notation for SVM, Functional and Geometric Margins
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture06.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture06.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 7</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/37" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture07.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 16 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Optimal Margin Classifier, Lagrange Duality, Karush-Kuhn-Tucker (KKT) Conditions, SVM Dual, The Concept of Kernels
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture07.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture07.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 8</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/39" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture08.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 17 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Kernels, Mercer's Theorem, Non-linear Decision Boundaries and Soft Margin SVM, Coordinate Ascent Algorithm, The Sequential Minimization Optimization (SMO) Algorithm, Applications of SVM
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture08.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture08.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 9</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/53" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture09.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 14 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Bias/variance Tradeoff, Empirical Risk Minimization (ERM), The Union Bound, Hoeffding Inequality, Uniform Convergence - The Case of Finite H, Sample Complexity Bound, Error Bound, Uniform Convergence Theorem & Corollary
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture09.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture09.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 10</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/55" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture10.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 13 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Uniform Convergence - The Case of Infinite H, The Concept of 'Shatter' and VC Dimension, SVM Example, Model Selection, Cross Validation, Feature Selection
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture10.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture10.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 11</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/36" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture11.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 22 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Bayesian Statistics and Regularization, Online Learning, Advice for Applying Machine Learning Algorithms, Debugging/fixing Learning Algorithms,  Diagnostics for Bias & Variance, Optimization Algorithm Diagnostics, Diagnostic Example - Autonomous Helicopter, Error Analysis, Getting Started on a Learning Problem
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture11.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture11.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 12</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/43" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture12.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 14 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> The Concept of Unsupervised Learning, K-means Clustering Algorithm, K-means Algorithm, Mixtures of Gaussians and the EM Algorithm, Jensen's Inequality, The EM Algorithm, Summary
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture12.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture12.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 13</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/40" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture13.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 15 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Mixture of Gaussian, Mixture of Naive Bayes - Text clustering (EM Application), Factor Analysis, Restrictions on a Covariance Matrix, The Factor Analysis Model, EM for Factor Analysis
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture13.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture13.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 14</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/48" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture14.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 21 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> The Factor Analysis Model,0 EM for Factor Analysis, Principal Component Analysis (PCA), PCA as a Dimensionality Reduction Algorithm, Applications of PCA, Face Recognition by Using PCA
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture14.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture14.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 15</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/45" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture15.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 17 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Latent Semantic Indexing (LSI), Singular Value Decomposition (SVD) Implementation, Independent Component Analysis (ICA), The Application of ICA, Cumulative Distribution Function (CDF), ICA Algorithm, The Applications of ICA
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture15.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture15.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 16</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/38" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture16.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 13 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Applications of Reinforcement Learning, Markov Decision Process (MDP), Defining Value & Policy Functions, Value Function, Optimal Value Function, Value Iteration, Policy Iteration
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture16.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture16.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 17</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/41" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture17.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 17 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Generalization to Continuous States, Discretization & Curse of Dimensionality, Models/Simulators, Fitted Value Iteration, Finding Optimal Policy
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture17.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture17.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 18</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/46" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture18.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 17 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> State-action Rewards, Finite Horizon MDPs, The Concept of Dynamical Systems, Examples of Dynamical Models, Linear Quadratic Regulation (LQR), Linearizing a Non-Linear Model, Computing Rewards, Riccati Equation
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture18.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture18.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 19</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/52" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture19.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 16 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Advice for Applying Machine Learning, Debugging Reinforcement Learning (RL) Algorithm, Linear Quadratic Regularization (LQR), Differential Dynamic Programming (DDP), Kalman Filter & Linear Quadratic Gaussian (LQG), Predict/update Steps of Kalman Filter, Linear Quadratic Gaussian (LQG)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture19.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture19.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-collapsable ">
+                    <div class="panel-heading">
+                        <h2>Lecture 20</h2>
+                    </div>
+                    <div class="panel-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td width="33%">Watch Online:</td>
+                                    <td>
+                                        Download:
+                                        <div class="down-hints">Right Click, and Save As</div>
+                                    </td>
+                                    <td>Duration:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="/Course/CS229/51" class="btn  " rel="player">
+                                            <i class="icon icon-play"></i> Watch Now
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://html5.stanford.edu/videos/courses/see/CS229/CS229-lecture20.mp4" class="btn btn-link" download>
+                                            <i class="icon icon-download"></i> Download
+                                        </a>
+                                    </td>
+                                    <td>
+                                        1 hr 17 min
+                                    </td>
+                                </tr>
+                                <tr class="row-secondary">
+                                    <td colspan="4">
+                                        <strong>Topics:</strong> Partially Observable MDPs (POMDPs), Policy Search, Reinforce Algorithm, Pegasus Algorithm, Pegasus Policy Search, Applications of Reinforcement Learning
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="heading" style="margin-top: 0">
+                            <h3>Transcripts</h3>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture20.html" target="_blank" class="btn btn-small btn-highlight">HTML</a></li>
+                            <li><a href="/materials/aimlcs229/transcripts/MachineLearning-Lecture20.pdf" target="_blank" class="btn btn-small btn-highlight">PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+                
+            </div>
+        </div>
+
+        <div class="master-footer-primary">
+            <div class="container">
+                <h2 class="footer-primary-logo"><a href="http://scpd.stanford.edu/">Stanford Center for Professional Development</a></h2>
+
+                <nav class="footer-primary-links">
+                    <ul>
+                        <li><a href="http://scpd.stanford.edu/about-us/contact" target="_blank">Contact Us</a></li>
+                        <li><a href="http://scpd.stanford.edu/accessibility" target="_blank">Accessibility Information</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer-primary-social-media">
+                    <ul>
+                        <li><a href="https://www.facebook.com/StanfordProfessionalDevelopment" class="icon-facebook">Facebook</a></li>
+                        <li><a href="https://twitter.com/StanfordCPD" class="icon-twitter">Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/groups?trk=anetsrch_name&goback=.gdr_1280870667894_3&gid=3265054" class="icon-linkedin">LinkedIn</a></li>
+                        <li><a href="https://www.youtube.com/stanfordonline" class="icon-youtube">YouTube</a></li>
+                        <li><a href="https://plus.google.com/108766063822173998021/posts" class="icon-google">Google+</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="master-footer-secondary">
+            <div class="container">
+                <h3 class="footer-secondary-logo"><a href="http://www.stanford.edu/">Stanford University</a></h3>
+
+                <div class="footer-secondary-content">
+                    <ul>
+                        <li><a href="http://www.stanford.edu/">SU Home</a></li>
+                        <li><a href="http://www.stanford.edu/dept/visitorinfo/plan/maps.html">Maps &amp; Directions</a></li>
+                        <li><a href="http://stanford.edu/search/">Search Stanford</a></li>
+                        <li><a href="http://stanford.edu/site/terms.html">Terms of Use</a></li>
+                        <li><a href="http://www.stanford.edu/group/security/dmca.html">Copyright Complaints</a></li>
+                    </ul>
+                    <p>&copy; Stanford University, Stanford, California 94305</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- required global scripts -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/js/classx.min.js"></script>
+    <script src="/Scripts/collapse.js"></script>
+    
+    <script src="/Scripts/Shared.js"></script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-63554498-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>
+
