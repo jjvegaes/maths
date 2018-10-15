@@ -78,7 +78,7 @@ Equations
          s.lo('abril') = inventario_final;
          r_maxima_produccion(t).. p(t) =l= produccion * dias(t);
          r_capacidad_stock(t).. s(t) =l= capacidad;
-         r_demanda(t).. p(t) =l= demanda(t);
+         r_demanda(t).. v(t) =l= demanda(t);
 
 * coding area
 Model  ex1 /All/;
