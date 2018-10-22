@@ -1,11 +1,11 @@
 Sets
          i variable /1*2/
-         j restriccion /1*5/
+         j restriccion /1*4/
 ;
 
 Parameters
-         c(i) /1 6, 2 -5/
-         B(j) /1 21, 2 21, 3 -30, 4 651, 5 84/
+         c(i) /1 4, 2 3/
+         B(j) /1 21, 2 21, 3 -30, 4 651/
 ;
 
 Table
@@ -15,14 +15,13 @@ Table
          2       3       -21
          3       -1      -3
          4       31      21
-         5       6       -5
 ;
 
 Free Variables
          z  valor objetivo
 ;
 
-Integer Variables
+Positive Variables
          x(i) variable de decision
 ;
 

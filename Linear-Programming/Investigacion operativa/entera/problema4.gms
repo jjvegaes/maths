@@ -49,10 +49,13 @@ Sets
 Parameters
          precio(j) /M11 3750, M12 750,  M13 4500,
                     M21 3000, M22 6500, M23 250/
+
          coste(j)  /M11 8,    M12 9,    M13 10,
                     M21 12,   M22 13,   M23 11/
+
          min(j)    /M11 700,  M12 850,  M13 550,
                     M21 400,  M22 550,  M23 550/
+
          max(j)    /M11 950,  M12 1000, M13 850,
                     M21 600,  M22 1200, M23 600/
 ;
@@ -71,8 +74,10 @@ Binary Variables
 
 Equations
          obj
+*        El producto debe pasar por las dos fases
 *        Cada fase requiere de una maquinaria especifica
-         r_demanda(i) El producto debe pasar por las dos fases
+         r_demanda(i) al menos una maquina para cada fase
+         b_fase balance entre fase
          r_asignacion_1 En la fase 1 no pueden seleccionarse más de una máquina
          r_asignacion_2 En la fase 2 no pueden seleccionarse más de dos máquina
          p_min(i,j) Relacion entre la maquina M23 y la cantidad producidad por dicha maquina
@@ -81,6 +86,7 @@ Equations
 ;
          obj.. z =e= sum((i,j), b(i,j)*precio(j)+x(i,j)*coste(j));
          r_demanda(i).. sum(j,b(i,j))=g=1;
+         b_fase.. sum(j, x('1', j)) =e= sum(j, x('2', j));
 *        asocia maquina con su fase
          b.up(i,j) = f(i,j);
          r_asignacion_1.. sum(j, b('1',j))=l=1;

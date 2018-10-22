@@ -1,37 +1,42 @@
 [PROJECT]
 
-[OPENWINDOW_1]
-MAXIM=0
-TOP=0
-LEFT=0
-HEIGHT=483
-WIDTH=954
-
-[RP:PROBLEMA6]
-1=
-
 [RP:UNTITLED_1]
-1=
-
-[RP:PROBLEMA4]
-1=
-
-[RP:PROBLEMA5]
 1=
 
 [RP:PROBLEMA7]
 1=
 
+[RP:PROBLEMA6]
+1=
+
+[RP:PROBLEMA4]
+1=
+
 [RP:PROBLEMA8]
 1=
 
+[RP:PROBLEMA5]
+1=
+
+[RP:PRACTICA1]
+1=
+
 [MRUFILES]
-1=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema8.lst
-2=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema8.gms
-3=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema7.gms
-4=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema5.gms
-5=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema4.gms
-6=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema7.lst
-7=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\Untitled_1.gms
-8=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema6.gms
-9=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema6.lst
+1=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema5.lst
+2=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema5.gms
+3=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema8.lst
+4=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema8.gms
+5=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema7.lst
+6=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema6.lst
+7=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema4.lst
+8=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\problema4.gms
+
+[OPENWINDOW_1]
+FILE0=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\entera\practica1.lst
+FILE1=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\practica1\practica1.gms
+FILE2=C:\Users\vitam\Dropbox\math-exercises\Linear-Programming\Investigacion operativa\practica1\practica1.gms
+MAXIM=0
+TOP=483
+LEFT=0
+HEIGHT=483
+WIDTH=954

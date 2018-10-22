@@ -34,5 +34,6 @@ Equations
 
 
 * coding area
+option optcr = 0.001;
 Model  ex1 /All/;
 Solve ex1 using LP maximizing z;
