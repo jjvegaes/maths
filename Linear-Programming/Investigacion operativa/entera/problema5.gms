@@ -45,7 +45,7 @@ Sets
 ;
 
 Scalars
-         max /6/
+         max_proyecto /6/
          presupuesto_anio  /590000/
          presupuesto_total /1446000/
 ;
@@ -95,13 +95,13 @@ Equations
          r3(j) No se pueden financiar proyectos con un presupuesto total superior a 330 euros:
 ;
          obj.. z =e= sum(j,x(j)*valoracion(j));
-         r_proyecto.. sum(j,x(j))=l=6;
+         r_proyecto.. sum(j,x(j))=l=max_proyecto;
          r_region(r).. sum(j, region(j,r)*x(j))=g=1;
          r_area(a).. sum(j,area(j,a)*x(j))=g=1;
          r_presupuesto_anio(t).. sum(j,x(j)*presupuesto(j,t)*1000)=l=presupuesto_anio;
-         r_presupuesto_total.. sum(j, sum(t,x(j)*presupuesto(j,t)*1000))=l=presupuesto_total;
+         r_presupuesto_total.. sum((j,t), x(j)*presupuesto(j,t)*1000)=l=presupuesto_total;
          r1.. -1*x('1')-1*x('2')-2*x('8')=l=-2;
-         r2.. sum(pr(j,'1'), x(j))=l=1;
+         r2.. sum(pr(j,'1'), x(j)) =l= 1;
          r3(j).. sum(t,x(j)*presupuesto(j,t))=l=330;
 
 
