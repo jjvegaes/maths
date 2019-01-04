@@ -6,4 +6,4 @@ The steps of asigmentes can be found in [their main page](http://cs231n.github.i
 
 The original codes can be obtained from [CS231 Home Page](http://cs231n.stanford.edu/assignments/2018/).
 
-The slides are located in [Here][http://cs231n.stanford.edu/slides/2018/]
+The slides are located in [Here](http://cs231n.stanford.edu/slides/2018/)
