@@ -163,3 +163,5 @@ ENV/
 *.log
 *.lst
 *.lxi
+
+desktop.ini
