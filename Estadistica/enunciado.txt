@@ -1,0 +1,88 @@
+ESTADÍSTICA: PRáCTICA 2
+PRIMERA PARTE: VARIABLES ALEATORIAS
+Resolver las siguientes cuestiones, utilizando el software estadístico R. Las soluciones se
+entregarán en formato pdf, utilizando el fichero: sol_prac2.doc, en la sección EVALUACI
+óN del Aula Virtual, basta con que el informe lo entregue un miembro del grupo.
+1. Una máquina fabrica tornillos cuyas longitudes se distribuyen normalmente con
+media 20 mm y varianza 0.25 mm. Un tornillo se considera defectuoso si su longitud
+difiere de la media más de 1 mm. Los tornillos se fabrican de forma independiente.
+a) >Cuál es la probabilidad de fabricar un tornillo defectuoso?
+b) Si los envasamos en envases de 15 tornillos, probabilidad de que un envase no
+tenga más de 2 defectuosos.
+2. En un proceso de fabricación se puede suponer por estudios previos que la probabilidad
+de que un artículo sea defectuoso es p = 0:01. Inspeccionamos artículos
+secuencialmente hasta encontrar uno defectuoso. Calcular la probabilidad de que el
+quinto artículo seleccionado sea el primero defectuoso.
+3. El volumen de ventas de un almacén se distribuye uniformemente entre 38 y 120
+miles de euros. Calcular la probabilidad de que las ventas sean superiores a 100000
+euros.
+4. Se ha comprobado que la duración de vida de cierto tipo de circuitos sigue una
+distribución exponencial con media 8 a~nos. Calcular:
+a) La probabilidad de que un circuito tenga una vida entre 3 y 12 a~nos.
+b) La probabilidad de que un circuito que ha vivido más de 10 a~nos, viva 15 a~nos
+más.
+5. Un representante realiza cinco visitas cada día a los comercios de su ramo y, por
+experiencia anterior, sabe que la probabilidad de que le hagan un pedido en cada
+visita es 0:4. Calcular
+a) Probabilidad de que el número de pedidos que realiza durante un día sea 4.
+b) La probabilidad de que realice por lo menos dos pedidos.
+c) La probabilidad de que el número de pedidos que realiza durante un día
+esté comprendido entre 1 y 3.
+1
+6. En cierta empresa constructora el número medio de accidentes es de 3 por mes.
+Suponiendo un tráfico de Poisson, calcular:
+a) La probabilidad de que no ocurra ningún accidente en un mes dado.
+b) La probabilidad de que ocurran menos de 5 accidentes en un mes dado.
+c) La probabilidad de que ocurran más de 3 accidentes en un mes dado.
+d) La probabilidad de que ocurran exactamente 3 accidentes en un mes dado.
+7. La duración de un láser semiconductor a potencia constante tiene una distribución
+normal con media 7.000 horas y desviación típica de 600 horas.
+a) >Cuál es la probabilidad de que el láser falle antes de 5.000 horas?
+b) >Cuál es la duración en horas excedida por el 95% de los láseres?
+c) Si se hace uso de tres láseres en un producto y se supone que fallan de manera
+independiente. >Cuál es la probabilidad de que tres sigan funcionando después
+de 7.000 horas?
+8. El personal de la compa~nía Onda S.L. usa una Terminal para realizar sus pedidos
+internacionales. Si el tiempo que cada comercial gasta en una sesión en la Terminal
+tiene una distribución exponencial con media 36 minutos, encontrar:
+a) Probabilidad de que un comercial utilice la Terminal 30 minutos o menos.
+b) Si un comercial ha estado 30 minutos en la Terminal, >Cuál es la probabilidad
+de que pase al menos una hora más en la Terminal?
+c) El 90% de las sesiones terminan en menos de R minutos. >Cuánto vale R?
+9. Desde el a~no 1980 el número medio de empresas, con más de 100 trabajadores,
+que han presentado suspensión de pagos ha sido de 6:8 por a~no, y admitimos que el
+número de empresas con más de 100 trabajadores, que han presentado suspensión de
+pagos durante un periodo determinado de tiempo sigue una distribución de Poisson.
+Obtener
+a) La probabilidad de que ninguna empresa de más de 100 trabajadores presente
+suspensión de pagos durante un trimestre.
+b) La probabilidad de que por lo menos dos empresas de más de 100 trabajadores
+presenten suspensión de pagos durante un determinado a~no.
+2
+SEGUNDA PARTE: INFERENCIA ESTADÍSTICA
+Census at School es un proyecto internacional que involucra a estudiantes de secundaria
+y bachillerato en la solución de problemas estadísticos. Los estudiantes completan una
+breve encuesta on line, que puedes consultar en el enlace:
+http://www.amstat.org/censusatschool/pdfs/C@SQuestionnaire.pdf
+analizan los resultados del censo de su clase y comparan éstos con muestras aleatorias de
+estudiantes de otros países.
+En la práctica 1, realizamos un análisis descriptivo de una muestra de datos de Census at
+School, utilizando R y presentando los resultados obtenidos en un informe. En el apartado
+4 de la práctica 1, observamos de forma gráfica (utilizando boxplots), que había diferencias
+de altura entre estudiantes de distinto sexo. En esta práctica, queremos formalizar esta
+observación, para ello se aconseja seguir los siguientes pasos:
+1. Leer los datos con R y guardar éstos en una hoja de datos.
+2. Estudiar gráficamente si la distribución de la variable altura (distinguiendo por
+sexos) puede considerarse normal. Para ello, utiliza las funciones hist(), qqnorm(),
+qqline().
+3. Calcular intervalos de confianza para la altura media de los chicos y de las chicas,
+por separado.
+4. Plantear un contraste de hipótesis que nos permita responder a la pregunta: >La
+altura media de los chicos supera los 170 cm?
+5. Plantear un contraste de hipótesis que nos permita responder a la pregunta: >La
+altura media de las chicas es inferior a los 160 cm?
+6. Resolver los contrastes anteriores con el software R.
+7. Presentar los resultados obtenidos en un informe.
+Utiliza los datos de la Práctica 1 (recuerda que se encuentran en el fichero grupoX_datos.txt
+en el Aula Virtual).
+3

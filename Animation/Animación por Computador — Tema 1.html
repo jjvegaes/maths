@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)http://dancasas.github.io/teaching/AC-2018/ejercicios.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__dancasas_github_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Animación por Computador — Tema 1</title>
+        
+            
+         <!-- Fonts and stuff -->
+         <link href="./Animación por Computador — Tema 1_files/matlab-highlighter-1.55.css" rel="stylesheet" type="text/css">
+         <script src="./Animación por Computador — Tema 1_files/matlab-highlighter-1.55.min.js.descarga"></script>
+         <link href="./Animación por Computador — Tema 1_files/css" rel="stylesheet" type="text/css">
+         <link rel="stylesheet" type="text/css" href="./Animación por Computador — Tema 1_files/style.css" media="screen">
+                
+        </head>
+                
+        <body onload="highlightMATLABCode();" data-gr-c-s-loaded="true">
+            <div id="content">
+            <div id="content-inner">
+                
+                <div class="section head">
+                    <h1>Slides</h1>
+                </div>
+                <div class="section abstract">
+                    1.1 — <a href="http://dancasas.github.io/teaching/AC-2018/docs/1.1-Interpolacion-v2018.pdf">Interpolación </a><br>
+                    1.2 — <a href="http://dancasas.github.io/teaching/AC-2018/docs/1.2-Movimiento-a-traves-de-una-curva-v2018.pdf">Movimiento a través de una curva </a><br>
+                    1.3 — <a href="http://dancasas.github.io/teaching/AC-2018/docs/1.3-Sistemas-Keyframe-v2018.pdf">Sistemas keyframe </a><br>
+                    
+                    1.4 — <a href="http://dancasas.github.io/teaching/AC-2018/docs/1.4-Deformacion-de-objetos-v2018.pdf">Deformación de objetos</a><br>
+                    <br>
+                    2.1 — <a href="http://dancasas.github.io/teaching/AC-2018/docs/2.1-Cinematica-directa-v2018.pdf">Cinemática directa</a><br>
+                    2.2 — <a href="http://dancasas.github.io/teaching/AC-2018/docs/2.2-Cinematica-inversa-v2018.pdf">Cinemática inversa</a><br>
+                    <!--
+                    <br/>
+                    3.1 — <a href="docs/3.1-Animacion-humana-v2017.pdf">Animación Humana</a><br/>
+                    3.2 — <a href="docs/3.2-Animacion-facial-v2017.pdf">Animación Facial</a><br/>
+                    3.3 — <a href="docs/3.3-Cloth-v2017.pdf">Cloth Simulation</a><br/><br/>
+                    <br/>
+                    -->
+                </div>
+            <div class="section head">
+                <h1>Tema 1.1 — Interpolación</h1>
+                
+                <div class="authors">
+                Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                
+                <div class="venue"></div>
+                
+            </div>
+            <!--
+            <div class="section teaser">
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/?" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <p style="font-size:11px; text-align:center">
+            <a href="content/>.mp4" target="_blank">Download Video</a>
+            </p>
+            </div>
+            -->
+        
+            <div class="section abstract">
+                <h2>Ejercicio 1.1.1</h2>
+                <p>
+                    Escribe una función de MATLAB para visualizar los polinomios base de Hermite de grado 3.
+                    </p><pre class="matlab-code"><span class="matlab-keyword">function</span> plot_hermite_basis<span class="matlab-bracket">()</span><br>&nbsp;   figure;<br>&nbsp;   hold on;<br>&nbsp;   grid on;<br>&nbsp;               <br>&nbsp;   <span class="matlab-comment">% Rango</span><br>&nbsp;   x = <span class="matlab-number">0</span>:<span class="matlab-number">0</span>.<span class="matlab-number">0001</span>:<span class="matlab-number">1</span>;<br>&nbsp;               <br>&nbsp;   H0 = <span class="matlab-number">2</span>*x.^<span class="matlab-number">3</span> - <span class="matlab-number">3</span>*x.^<span class="matlab-number">2</span> +<span class="matlab-number">1</span> ;<br>&nbsp;   plot<span class="matlab-bracket">(</span>x,H0<span class="matlab-bracket">)</span>;<br><br>&nbsp;   <span class="matlab-comment">% Completar...</span><br>&nbsp;   <br>&nbsp;   hold off;<br><span class="matlab-keyword">end</span>                    </pre>
+                
+<img src="./Animación por Computador — Tema 1_files/check.png" style="width:0.8em; height:0.8em;"><a href="https://www.dropbox.com/s/6vo8ukmq66a23n3/plot_hermite_basis.m">Solución</a>
+
+                <p></p>
+            </div>
+            
+            <div class="section abstract">
+                <h2>Ejercicio 1.1.2</h2>
+                <p>
+                Calcula el polinomio de Hermite <code>P(x)</code> tal que <code>P(0) = 1</code>, <code>P(1) = 1</code>, <code>P'(0) = 0</code>, <code>P'(1) = 1</code>. Implementa una función en MATLAB para visualizar el resultado.
+                    </p><pre class="matlab-code"><span class="matlab-keyword">function</span> hermite_interpolation_demo<span class="matlab-bracket">()</span><br>&nbsp;   figure;<br>&nbsp;   hold on;<br>&nbsp;                   <br>&nbsp;   <span class="matlab-comment">% Completar ...</span><br>&nbsp;                   <br>&nbsp;   plot<span class="matlab-bracket">(</span>x,y<span class="matlab-bracket">)</span>;<br>&nbsp;   hold off;<br><span class="matlab-keyword">end</span></pre>
+ 
+<img src="./Animación por Computador — Tema 1_files/check.png" style="width:0.8em; height:0.8em;"><a href="https://www.dropbox.com/s/x4t74pj8zg5b6im/hermite_interpolation_demo.m">Solución</a>             
+
+                <p></p>
+            </div>
+            <div class="section abstract">
+                <h2>Ejercicio 1.1.3</h2>
+                <p>
+                Calcula el polinomio interpolador de Lagrange de la siguiente tabla. Escribe una función de MATLAB que dibuje cada uno de los polinomios interpoladores y el polinomio resultante.
+                </p>
+                
+                <code>
+                    x -9  -4  -1   7<br>
+                    y  5   2  -2   9<br>
+                </code>
+                <br>
+                <p>
+                El resultado debe ser algo parecido a <a href="http://dancasas.github.io/teaching/AC-2018/ejercicio3.png">esto</a>.
+                
+                
+                ¿Cuál es el valor del primer polinomio interpolador en <code>x=-4</code>, <code>x=-1</code> y <code>x=7</code>?
+                
+                ¿Cuál es el valor del segundo polinomio interpolador en <code>x=-9</code>, <code>x=-1</code> y <code>x=7</code>?
+                
+                ¿Cuál es el valor del tercer polinomio interpolador en <code>x=-9</code>, <code>x=-4</code> y <code>x=7</code>?
+                
+                ¿Cuál es el valor del cuarto polinomio interpolador en <code>x=-9</code>, <code>x=-4</code> y <code>x=-1</code>?
+                <br><br>
+                 
+                <img src="./Animación por Computador — Tema 1_files/check.png" style="width:0.8em; height:0.8em;"><a href="https://www.dropbox.com/s/yo9drccjx7ou7fc/lagrange_interpolation_demo.m">Solución</a>
+
+                </p>
+            </div>
+            
+            <div class="section abstract">
+                <h2>Ejercicio 1.1.4</h2>
+                <p>
+                Interpolar y dibujar en MATLAB con splines lineales la función <code>f(x) = 1 / x</code> en los puntos en los que  <code>x</code> vale <code>1, 2 y 4</code>.
+                <br><br>
+                
+                <img src="./Animación por Computador — Tema 1_files/check.png" style="width:0.8em; height:0.8em;"><a href="https://www.dropbox.com/s/qxm5tbs6djyj63s/linear_spline_interpolation.m">Solución</a>
+		
+                </p>
+                
+            </div>
+
+            <div class="section abstract">
+                <h2>Ejercicio 1.1.5</h2>
+                <p>
+                Interpolar y dibujar en MATLAB  con splines quadráticas (grado 2) la función <code>f(x)</code> que pasa por los puntos <code>f(3) = 2.5; f(4.5) = 1;  f(7) = 2.5; f(9)=0.5</code>. Utiliza la función de MATLAB <code>X = linsolve(A,b)</code> o el operador <code>X = A\b</code> para resolver el sistema de ecuaciones.
+                <br><br>
+                Se trata de un sistema indeterminado, con más incognitas que ecuaciones. ¿Qué se puede hacer en estos casos? Calcula por lo menos 2 posibles soluciones del sistema, y dibuja las splines resultantes en MATLAB.
+                <br><br>
+
+                <img src="./Animación por Computador — Tema 1_files/check.png" style="width:0.8em; height:0.8em;"><a href="https://www.dropbox.com/s/xf0wbystgwb5qdi/quadratic_spline_interpolation.m">Solución</a>
+
+                </p>
+            </div>
+            <div class="section abstract">
+                <h2>Ejercicio 1.1.6</h2>
+                <p>
+                Utilizando como referencia la función <code>bezier_linear()</code> de más abajo que dibuja una <curva> de Bezier de con sólo dos puntos de control, escribe dos nuevas funciones <code>bezier_quadratic()</code> y <code>bezier_cubic()</code> que calculen y dibujen curvas cuadráticas y cúbicas.
+                    <br>
+                    <br>
+                    Modifica el tercer parámetro de la función <code>linspace</code> y observa como cambian las curvas dibujadas. ¿Qué controla este parámetro?
+                </curva></p><pre class="matlab-code"><span class="matlab-keyword">function</span> placelabel<span class="matlab-bracket">(</span>pt,str<span class="matlab-bracket">)</span><br>&nbsp;   x = pt<span class="matlab-bracket">(</span><span class="matlab-number">1</span><span class="matlab-bracket">)</span>;<br>&nbsp;   y = pt<span class="matlab-bracket">(</span><span class="matlab-number">2</span><span class="matlab-bracket">)</span>;<br>&nbsp;   h = line<span class="matlab-bracket">(</span>x,y<span class="matlab-bracket">)</span>;<br>&nbsp;   h.Marker = <span class="matlab-string">'*'</span>;<br>&nbsp;   h = text<span class="matlab-bracket">(</span>x,y,str<span class="matlab-bracket">)</span>;<br><br>&nbsp;   h.HorizontalAlignment = <span class="matlab-string">'center'</span>;<br>&nbsp;   h.VerticalAlignment = <span class="matlab-string">'bottom'</span>;<br><span class="matlab-keyword">end</span><br>&nbsp;               </pre>
+                
+<pre class="matlab-code"><span class="matlab-keyword">function</span> bezier_linear<span class="matlab-bracket">()</span><br>&nbsp;   figure;<br>&nbsp;   hold on<br>&nbsp;   pt1 = <span class="matlab-bracket">[</span> <span class="matlab-number">5</span>;-<span class="matlab-number">10</span><span class="matlab-bracket">]</span>;<br>&nbsp;   pt2 = <span class="matlab-bracket">[</span><span class="matlab-number">45</span>; <span class="matlab-number">15</span><span class="matlab-bracket">]</span>;<br><br>&nbsp;   placelabel<span class="matlab-bracket">(</span>pt1,<span class="matlab-string">'  pt_1'</span><span class="matlab-bracket">)</span>;<br>&nbsp;   placelabel<span class="matlab-bracket">(</span>pt2,<span class="matlab-string">'  pt_2'</span><span class="matlab-bracket">)</span>;<br>&nbsp;   xlim<span class="matlab-bracket">([</span><span class="matlab-number">0</span> <span class="matlab-number">50</span><span class="matlab-bracket">])</span><br>&nbsp;   axis equal<br><br>&nbsp;   <span class="matlab-comment">% Crea un vector de <span class="matlab-number">100</span> valores equidistantes entre <span class="matlab-number">0</span> y <span class="matlab-number">1</span></span><br>&nbsp;   t = linspace<span class="matlab-bracket">(</span><span class="matlab-number">0</span>,<span class="matlab-number">1</span>,<span class="matlab-number">100</span><span class="matlab-bracket">)</span>;<br>&nbsp;   <span class="matlab-comment">% Evalua la funcion <span class="matlab-bracket">(</span><span class="matlab-number">1</span>-t<span class="matlab-bracket">)</span> * pt1 + t * pt2 en todos los puntos t</span><br>&nbsp;   pts = kron<span class="matlab-bracket">((</span><span class="matlab-number">1</span>-t<span class="matlab-bracket">)</span>,pt1<span class="matlab-bracket">)</span> + kron<span class="matlab-bracket">(</span>t,pt2<span class="matlab-bracket">)</span>;<br><br>&nbsp;   <span class="matlab-comment">% Metodo alternativo</span><br>&nbsp;   <span class="matlab-comment">%pts = <span class="matlab-bracket">[]</span>;</span><br>&nbsp;   <span class="matlab-comment">%<span class="matlab-keyword">for</span> t=<span class="matlab-number">0</span>:<span class="matlab-number">0</span>.<span class="matlab-number">2</span>:<span class="matlab-number">1</span></span><br>&nbsp;   <span class="matlab-comment">%    pts = <span class="matlab-bracket">[</span>pts <span class="matlab-bracket">((</span><span class="matlab-number">1</span>-t<span class="matlab-bracket">)</span> * pt1 + t * pt2<span class="matlab-bracket">)]</span>;</span><br>&nbsp;   <span class="matlab-comment">%<span class="matlab-keyword">end</span></span><br><br>&nbsp;   plot<span class="matlab-bracket">(</span>pts<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,:<span class="matlab-bracket">)</span>, pts<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,:<span class="matlab-bracket">))</span>;<br><br>&nbsp;   hold off;<br><span class="matlab-keyword">end</span><br></pre>
+                <p></p>
+                
+            </div>
+             
+            <div class="section head">
+                <h1>Tema 1.2 — Movimiento a través de una curva</h1>
+                
+                <div class="authors">
+                    Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                
+                
+                <div class="venue"></div>
+                
+            </div>
+            
+            <div class="section abstract">
+                <h2>Ejercicio 1.2.1 – <font color="red">Entrega el 8 de Octubre 2018, 23:59</font> </h2>
+                <p>
+                Escribe una funcion en MATLAB llamada <code>compute_arc_length_cubic_bezier(pt1, pt2, pt3, pt4, samples)</code> que calcule mediante <i>Forward Differencing</i> la longitud del arco de una curva cúbica de Bezier. ¿Cómo cambia el resultado en función del parámetro <code>samples</code>?
+                <br><br>
+                
+                    <!--<img src="images/check.png" style="width:0.8em; height:0.8em;"><a href="#">Solución</a>-->
+                
+                </p>
+                
+                <h2>Ejercicio 1.2.2 – <font color="red">Entrega el 8 de Octubre 2018, 23:59</font></h2>
+                <p>
+                Escribe una función en MATLAB que dados 4 puntos de control, calcule su curva de Bezier y marque sobre ella: puntos equidistantes con respecto el parámetro <code>t</code> (tiempo) y con respecto el parámetro <code>s</code> (longitud del arco). El resultado final debería ser parecido a <b><a href="http://dancasas.github.io/teaching/AC-2018/trivial-VS-constant.png">esto</a></b>.
+                
+                <br><br>
+                
+                    <!--<img src="images/check.png" style="width:0.8em; height:0.8em;"><a href="#">Solución</a>-->
+                
+                </p>
+                
+
+                <h2>Ejercicio 1.2.3 – <font color="red">Entrega el 8 de Octubre 2018, 23:59</font></h2>
+                <p>
+                Dibuja en MATLAB un curva cerrada con continuidad C<sup>1</sup> creada por 4 curvas cúbicas de Bezier. Utiliza transformaciones del tipo translación y escalado en los puntos de control para cambiar el tamaño la curva dibujada. <b><a href="http://dancasas.github.io/teaching/AC-2018/bezier-joint.png">Aquí</a></b> tienes un ejemplo del tipo de resultado que puedes conseguir.
+                
+                <br><br>
+                
+                    <!--<img src="images/check.png" style="width:0.8em; height:0.8em;"><a href="#">Solución</a>-->
+                </p>
+                
+                <h2>Ejercicio 1.2.4 – <font color="red">Entrega el 8 de Octubre 2018, 23:59</font></h2>
+                <p>
+                Crea una imagen en la que aparezca una letra cualquiera (<a href="https://www.dropbox.com/s/um959pf2q42grdf/d.jpg">ejemplo</a>), y cárgala como imagen de fondo de un <code>figure</code> como se hace en el principio de la función <code>function bezier_over_letter()</code> que se muestra a continuación. Completa el resto de la función de manera que la silueta de la letra se aproxime mediante curvas de Bezier cúbicas.
+
+                Una vez tengas todas curvas necesarias, escálalas para obtener la misma letra más grande y más pequeña.
+                </p>
+                <pre class="matlab-code"><span class="matlab-keyword">function</span> bezier_over_letter<span class="matlab-bracket">()</span><br>&nbsp;   cla<br><br>&nbsp;   img = imread<span class="matlab-bracket">(</span><span class="matlab-string">'d.jpg'</span><span class="matlab-bracket">)</span>; <span class="matlab-comment">%  actualizar path a imagen</span><br>&nbsp;   image<span class="matlab-bracket">(</span><span class="matlab-string">'CData'</span>,img,<span class="matlab-string">'XData'</span>,<span class="matlab-bracket">[</span>-<span class="matlab-number">100</span> <span class="matlab-number">100</span><span class="matlab-bracket">]</span>,<span class="matlab-string">'YData'</span>,<span class="matlab-bracket">[</span><span class="matlab-number">100</span> -<span class="matlab-number">100</span><span class="matlab-bracket">])</span><br><br>&nbsp;   xlim<span class="matlab-bracket">([</span>-<span class="matlab-number">100</span> <span class="matlab-number">100</span><span class="matlab-bracket">])</span><br>&nbsp;   ylim<span class="matlab-bracket">([</span>-<span class="matlab-number">100</span> <span class="matlab-number">100</span><span class="matlab-bracket">])</span><br><br>&nbsp;   axis equal<br>&nbsp;   grid on;<br>&nbsp;   hold on;<br><br>&nbsp;   <span class="matlab-comment">% completar</span><br><br>&nbsp;   hold off;<br><span class="matlab-keyword">end</span><br><br>&nbsp;               </pre>
+                <br>
+                
+                    <!--<img src="images/check.png" style="width:0.8em; height:0.8em;"><a href="#">Solución</a>-->
+                <p></p>
+            </div>
+        
+            
+            <div class="section head">
+                <h1>Tema 2.1 — Cinemática directa</h1>
+                
+                <div class="authors">
+                    Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                
+                
+                <div class="venue"></div>
+                
+            </div>
+            <div class="section abstract">
+                <h2>Ejercicio 2.1.1</h2>
+                <p>
+Desarrolla la función <code>plot_skeleton(skeleton, rots) </code>en MATLAB que dibuje mediante la técnica de Cinemática Directa la estructura jerárquica inicializada a continuación.
+            </p>
+<pre class="matlab-code"><span class="matlab-keyword">function</span> skeleton_demo<span class="matlab-bracket">()</span><br>&nbsp;   close all;<br><br>&nbsp;   trans0 = <span class="matlab-bracket">[</span><span class="matlab-number">0</span>,<span class="matlab-number">0</span><span class="matlab-bracket">]</span>;<br>&nbsp;   trans1 = <span class="matlab-bracket">[</span>-<span class="matlab-number">1</span>,-<span class="matlab-number">1</span><span class="matlab-bracket">]</span>; <span class="matlab-comment">% Offset con respecto joint <span class="matlab-number">0</span></span><br>&nbsp;   trans2 = <span class="matlab-bracket">[</span><span class="matlab-number">0</span>,-<span class="matlab-number">1</span><span class="matlab-bracket">]</span>;  <span class="matlab-comment">% Offset con respecto joint <span class="matlab-number">1</span></span><br>&nbsp;   trans3 = <span class="matlab-bracket">[</span><span class="matlab-number">0</span>,-<span class="matlab-number">1</span><span class="matlab-bracket">]</span>;  <span class="matlab-comment">% Offset con respecto joint <span class="matlab-number">2</span></span><br><br>&nbsp;   rot1 = <span class="matlab-number">0</span>;         <span class="matlab-comment">% Rotacion local del joint <span class="matlab-number">0</span></span><br>&nbsp;   rot2 = <span class="matlab-number">0</span>;         <span class="matlab-comment">% Rotacion local del joint <span class="matlab-number">0</span></span><br>&nbsp;   rot3 = <span class="matlab-number">0</span>;         <span class="matlab-comment">% Rotacion local del joint <span class="matlab-number">0</span></span><br><br>&nbsp;   skeleton = <span class="matlab-bracket">[</span>trans0; trans1; trans2; trans3<span class="matlab-bracket">]</span>;<br>&nbsp;   rots = <span class="matlab-bracket">[</span>rot1 rot2 rot3<span class="matlab-bracket">]</span>;<br><br>&nbsp;   figure;<br>&nbsp;   hold on;<br>&nbsp;   grid on;<br>&nbsp;   axis equal;<br>&nbsp;   xlim<span class="matlab-bracket">([</span>-<span class="matlab-number">5</span> <span class="matlab-number">5</span><span class="matlab-bracket">])</span>;<br>&nbsp;   ylim<span class="matlab-bracket">([</span>-<span class="matlab-number">5</span> <span class="matlab-number">5</span><span class="matlab-bracket">])</span>;<br><br>&nbsp;   plot_skeleton<span class="matlab-bracket">(</span>skeleton, rots<span class="matlab-bracket">)</span>; <span class="matlab-comment">% Acaba de desarrollar esta función</span><br><br>&nbsp;   hold off;<br><span class="matlab-keyword">end</span><br></pre>
+<pre class="matlab-code"><br><span class="matlab-keyword">function</span> plot_skeleton<span class="matlab-bracket">(</span>skeleton, rots<span class="matlab-bracket">)</span><br>&nbsp;   rot1 = rots<span class="matlab-bracket">(</span><span class="matlab-number">1</span><span class="matlab-bracket">)</span>;<br>&nbsp;   rot2 = rots<span class="matlab-bracket">(</span><span class="matlab-number">2</span><span class="matlab-bracket">)</span>;<br>&nbsp;   rot3 = rots<span class="matlab-bracket">(</span><span class="matlab-number">3</span><span class="matlab-bracket">)</span>;<br>&nbsp;   <span class="matlab-comment">% Aplicamos nodo <span class="matlab-number">0</span></span><br><br>&nbsp;   rot0_matrix = <span class="matlab-bracket">[</span> <span class="matlab-number">1</span> <span class="matlab-number">0</span> <span class="matlab-number">0</span>;<br>&nbsp;   <span class="matlab-number">0</span> <span class="matlab-number">1</span> <span class="matlab-number">0</span>;<br>&nbsp;   <span class="matlab-number">0</span> <span class="matlab-number">0</span> <span class="matlab-number">1</span><span class="matlab-bracket">]</span>;<br><br>&nbsp;   trans0_matrix = <span class="matlab-bracket">[</span><span class="matlab-number">1</span> <span class="matlab-number">0</span> skeleton<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,<span class="matlab-number">1</span><span class="matlab-bracket">)</span>;<br>&nbsp;                    <span class="matlab-number">0</span> <span class="matlab-number">1</span> skeleton<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,<span class="matlab-number">2</span><span class="matlab-bracket">)</span>;<br>&nbsp;                    <span class="matlab-number">0</span> <span class="matlab-number">0</span> <span class="matlab-number">1</span><span class="matlab-bracket">]</span>;<br><br>&nbsp;   pos             = rot0_matrix * trans0_matrix;<br>&nbsp;   scatter<span class="matlab-bracket">(</span>pos<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)</span>, pos<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)</span>,<span class="matlab-number">300</span>,<span class="matlab-string">'o'</span>,<span class="matlab-string">'filled'</span><span class="matlab-bracket">)</span>;<br><br>&nbsp;   <span class="matlab-comment">% Aplicamos nodo <span class="matlab-number">1</span></span><br>&nbsp;   rot1_matrix = <span class="matlab-bracket">[</span> +cosd<span class="matlab-bracket">(</span>rot1<span class="matlab-bracket">)</span> -sind<span class="matlab-bracket">(</span>rot1<span class="matlab-bracket">)</span> <span class="matlab-number">0</span>;<br>&nbsp;                   +sind<span class="matlab-bracket">(</span>rot1<span class="matlab-bracket">)</span> +cosd<span class="matlab-bracket">(</span>rot1<span class="matlab-bracket">)</span> <span class="matlab-number">0</span>;<br>&nbsp;                    <span class="matlab-number">0</span>          <span class="matlab-number">0</span>          <span class="matlab-number">1</span> <span class="matlab-bracket">]</span>;<br><br>&nbsp;   trans1_matrix = <span class="matlab-bracket">[</span><span class="matlab-number">1</span> <span class="matlab-number">0</span> skeleton<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,<span class="matlab-number">1</span><span class="matlab-bracket">)</span>;<br>&nbsp;                    <span class="matlab-number">0</span> <span class="matlab-number">1</span> skeleton<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,<span class="matlab-number">2</span><span class="matlab-bracket">)</span>;<br>&nbsp;                    <span class="matlab-number">0</span> <span class="matlab-number">0</span> <span class="matlab-number">1</span><span class="matlab-bracket">]</span>;<br><br>&nbsp;   old_pos = pos;<br>&nbsp;   pos     =   rot0_matrix * trans0_matrix ...<br>&nbsp;   * rot1_matrix * trans1_matrix ;<br><br>&nbsp;   scatter<span class="matlab-bracket">(</span>pos<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)</span>, pos<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)</span>,<span class="matlab-number">300</span>,<span class="matlab-string">'o'</span>,<span class="matlab-string">'filled'</span><span class="matlab-bracket">)</span>;<br>&nbsp;   line<span class="matlab-bracket">([</span>pos<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)</span>,old_pos<span class="matlab-bracket">(</span><span class="matlab-number">1</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)]</span>,<span class="matlab-bracket">[</span>pos<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)</span>,old_pos<span class="matlab-bracket">(</span><span class="matlab-number">2</span>,<span class="matlab-number">3</span><span class="matlab-bracket">)]</span>, <span class="matlab-string">'LineWidth'</span>, <span class="matlab-number">2</span><span class="matlab-bracket">)</span>;<br><br>&nbsp;   <span class="matlab-comment">% Desarrolla el código para pintar el resto de la cadena</span><br><br><span class="matlab-keyword">end</span><br></pre>
+            <h2>Ejercicio 2.1.2</h2>
+            <p>
+            Cambia los valores de los parámetros del vector <code>rots</code> y observa como cambia la posición de la cadena. Consigue articulaciones parecidas a estas: <a href="http://dancasas.github.io/teaching/AC-2018/images/2_1_2/0.png">ejemplo1</a>, <a href="http://dancasas.github.io/teaching/AC-2018/images/2_1_2/1.png">ejemplo2</a>, <a href="http://dancasas.github.io/teaching/AC-2018/images/2_1_2/2.png">ejemplo3</a>, <a href="http://dancasas.github.io/teaching/AC-2018/images/2_1_2/3.png">ejemplo4</a>. Asegúrate de entender cómo afectan los cambios de cada uno de los parámetros en el estado final de la cadena.
+            </p>
+            <h2>Ejercicio 2.1.3</h2>
+            <p>
+            Añade dos eslabones más en la estructura jeráquica del ejercicio anterior.
+            </p>
+            </div>
+        
+            <div class="section head">
+                <h1>Tema 2.2 — Cinemática inversa</h1>
+                
+                <div class="authors">
+                    Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                
+                
+                <div class="venue"></div>
+                
+            </div>
+            <div class="section abstract">
+                <h2>Ejercicio 2.2.1 — <font color="red">Entrega el 21 de Octubre 2018</font></h2>
+                <p>
+                Desarrolla una función de Cinemática Inversa <code>run_IK()</code> que, dado una cadena jerárquica en reposo (vector de desplazamientos en 2D) y un objetivo (una coordenada 2D), calcule el valor de cada uno de los ángulos del cadena de tal forma que el <i>end effector</i> (punta de la cadena) este lo más cerca posible al objetivo. Para ello, utiliza la técnica del Jacobiano explicada en clase, y visualiza en MATLAB cada una de las iteraciones.</p>
+                <p><a href="http://dancasas.github.io/teaching/AC-2018/images/2_2_1/IK.gif"><b>Aquí</b></a> tienes una animación de cómo debería ser el resultado</p>
+                    <p> Recuerda que la parte principal de la función <code>run_IK</code> es un bucle de este estilo.</p>
+
+<pre class="matlab-code"><span class="matlab-keyword">while</span><span class="matlab-bracket">(</span>error<span class="matlab-bracket">(</span>current_position, target<span class="matlab-bracket">)</span> &gt; <span class="matlab-number">0</span>.<span class="matlab-number">1</span><span class="matlab-bracket">)</span><br>&nbsp;   <span class="matlab-comment">% Dibuja el estado actual</span><br>&nbsp;   plot_skeleton<span class="matlab-bracket">(</span>skeleton, rots<span class="matlab-bracket">)</span><br>&nbsp;   drawnow;<br><br>&nbsp;   <span class="matlab-comment">% Calcula Jacobiano del estado actual</span><br>&nbsp;   J = compute_jacobian<span class="matlab-bracket">(</span>skeleton, rots<span class="matlab-bracket">)</span>;<br><br>&nbsp;   <span class="matlab-comment">% Calcula posicion actual del <span class="matlab-keyword">end</span> effector</span><br>&nbsp;   <br>&nbsp;   <span class="matlab-comment">% Calcula incrementos de las rotaciones</span><br><br>&nbsp;   <span class="matlab-comment">% Actualiza rotaciones</span><br><br><span class="matlab-keyword">end</span><br></pre>
+            </div>
+
+        
+ <!--
+            <div class="section head">
+                <h1>Tema 3.1 — Caminar</h1>
+                
+                <div class="authors">
+                    Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                            
+                <div class="venue"></div>
+                
+            </div>
+            <div class="section abstract" >
+                <h2>Ejercicio 3.1.1</h2>
+                <p>
+                    Descárgate <a href="images/3_1_1/dummy.bvh">este archivo BVH</a> que contiene el esqueleto báisco. Importalo a Blender. Edítalo con un editor de texto para crear alguna animación sencilla, por ejemplo:
+                </p>
+                <ol>
+                    <li>Añade un movimiento translacional al nodo root durante 10 frames.</li>
+                    <li>Añade un movimiento rotacional en alguno de sus articulaciones durante 10 frames.</li>
+                    <li>Añade un eslabón nuevo a su cuerpo en reposo, con 2 DOFs.</li>
+                </ol>
+                <p>
+                    <a href="images/3_1_1/ex1.gif">Aquí</a> tienes una sencilla animación de lo que tienes que conseguir.
+                </p>
+                <h2>Ejercicio 3.1.2</h2>
+                <p>
+                Edita el archivo del ejercicio anterior, y cambia las línias del tipo <code>CHANNELS 3 Xrotation Yrotation Zrotation</code> por <code>CHANNELS 3 Zrotation Xrotation Yrotation</code>. ¿Puedes adivinar qué es lo que estás cambiando? ¿Qué consecuencuas tiene en la animación resultante? 
+                </p>         
+                <h2>Ejercicio 3.1.3</h2>
+                <p>
+                    Descárgate <a href="images/3_1_3/human-motion-start.blend">esta escena de Blender</a> y fíjate en las curvas de valores cómo la translación y la rotación de la pelvis (nodo root). Debería parecerse a <a href="images/3_1_3/curvas-rotacion-pelvis.png">esto</a>, que coincide con los gráficos correspondientes a la acción de caminar como hemos visto en clase. Intenta modificar las curvas en el Editor de Curvas de Blender, y observa cómo cambia la animación.
+                </p> 
+            </div>
+            
+            <div class="section head">
+                <h1>Tema 3.2 — Animación Facial</h1>
+                
+                <div class="authors">
+                    Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                            
+                <div class="venue"></div>
+                
+            </div>
+            <div class="section abstract" >
+                <h2>Ejercicio 3.2.1</h2>
+                <p>
+                Descárgate <a href="https://www.dropbox.com/s/k7ubi8snpqeh39y/blendshapes.zip?dl=1">este zip</a> que contiene un set de <i>blendshapes</i>, descomprimelo y guárdalas en un directorio. Descárgate también la función para dibujar mallas en format OBJ <code><a href="images/3_2_1/read_vertices_and_faces_from_obj_file.m">read_vertices_and_faces_from_obj_file.m</a></code>.</p>
+                <p>Acaba de implementar la función <code>compute_global_blendshapes()</code>, para que interpole entre 2 mallas utilizado el método de blendshape global que hemos visto en clase.</p>
+<pre class="matlab-code">
+function compute_global_blendshapes()
+    close all
+    
+    % Path where you uncompress all .obj
+    blendshape_path = '/Users/URJC/Downloads/tri' % ¡¡Actualiza el path!!
+    
+    % Read OBJ files
+    [V00,F] = read_vertices_and_faces_from_obj_file(strcat(blendshape_path, '/neutral-tri.obj'));
+    % V00 es una matrix vertices de tamaño [numero_vertices x 3]
+    num_vertices = size(V00,1); % Lee número de vertices
+    % Vectoriza malla 00
+    V00 = vertcat(V00(:,1),V00(:,2),V00(:,3));
+    
+    % ¡¡¡¡Leer más OBJ aquí!!!!
+    
+    figure;
+
+    %  Creamos un vector t con parametros alpha que utilizaremos
+    t=0:0.2:1;
+    t = [t flip(t)];
+    iterations = 0;
+    
+    % Loop infinito para ver los resultados
+    while 1
+       
+        % Iteración actual. Utilizamos módulo para siempre tener un número
+        % de iteración > tamaño del vector de alphas t.
+        iterations = mod(iterations,size(t,2)) + 1;
+
+        % Alpha correspondiente a la iteración actial
+        alpha = t(iterations);
+
+        % Stores current viewpoint
+        [az, el] = view; 
+
+        % ¡¡¡¡Calcular blendshape!!!!
+        V_blend = ...
+        
+        % Reshapes from vectorized mesh to [num_vertices,3]
+        V_blend = reshape(V_blend,[num_vertices,3]);
+        
+        % Draws mesh
+        trisurf(F,V_blend(:, 1),...
+                  V_blend(:, 2),...
+                  V_blend(:, 3),...
+                  'FaceColor',[0.26,0.63,1.0 ],'EdgeColor','none','LineStyle','none','SpecularStrength',0.4);
+      
+        % Sets current viewpoint
+        view (az, el);
+       
+        % Set up lighing
+        light('Position',[-1.0,-1.0,100.0],'Style','infinite');
+        lighting phong;
+        
+        % Set up axis
+        axis equal
+        axis([-1.5 1.5 0 2 -1 1.5])
+       
+        drawnow;
+    end
+end
+</pre>
+                <h2>Ejercicio 3.2.2</h2>
+                <p>
+                ¿Qué pasa cuándo asignamos una <i>alpha</i> mayor que 1, utilizando el método global de blendshapes?  
+                </p> 
+                <h2>Ejercicio 3.2.3</h2>
+                <p>
+                    Usando como referencia la función desarrollada en el ejercicio 3.2.1, implementa la función <code>compute_delta_blendshapes()</code> utilizando el método <i>delta blendshapes</i> presentado en clase. Mezcla <b>más</b> de 2 mallas a la vez. Por ejemplo, consigue una animación donde el personaje abra la boca y cierre los dos ojos. <a href="images/3_2_3/blendshape.gif">Aquí tienes una animación de lo que tienes que conseguir</a>.
+                </p>
+                <h2>Ejercicio 3.2.4</h2>
+                <p>
+                ¿Qué pasa cuándo asignamos una <i>alpha</i> mayor que 1, utilizando el método delta de blendshapes?  
+                </p> 
+                
+            </div>
+        -->
+            <!--
+            <div class="section head">
+                <h1>Tema 3.3 — Cloth simulation</h1>
+                
+                <div class="authors">
+                    Ejercicios
+                </div>
+                
+                <div class="affiliations">
+                </div>
+                            
+                <div class="venue"></div>
+                
+            </div>
+            <div class="section abstract" >
+                <h2>Ejercicio 3.2.1</h2>
+                <p>
+                    Descárgate <a href="https://www.dropbox.com/s/0uoxamli0smbqbm/cloth_simulation.blend?dl=1">esta</a> escena de Blender
+                </p>    
+            </div>
+            -->
+                
+            <div class="section">
+            <hr class="smooth">
+            Animación por Computador, 2018 — Dan Casas
+            </div>
+        </div>
+    </div>
+
+
+</body></html>
