@@ -1,48 +1,48 @@
 * Los gestores de recursos de un centro de procesamiento de datos
 * son componentes de software centralizados que gestionan
-* la ejecución de un gran número de servicios.
-* La colocación de múltiples servicios en una máquina
-* podría degradar el rendimiento y,
-* por lo tanto, es crítico para el gestor de recursos
-* utilizar la información sobre los servicios y las máquinas
-* para asignar efectivamente los recursos de la máquina.
-* El problema consiste en determinar la mejor asignación
+* la ejecuciÃ³n de un gran nÃºmero de servicios.
+* La colocaciÃ³n de mÃºltiples servicios en una mÃ¡quina
+* podrÃ­a degradar el rendimiento y,
+* por lo tanto, es crÃ­tico para el gestor de recursos
+* utilizar la informaciÃ³n sobre los servicios y las mÃ¡quinas
+* para asignar efectivamente los recursos de la mÃ¡quina.
+* El problema consiste en determinar la mejor asignaciÃ³n
 * de los servicios en los servidores para que,
 * por un lado, se cumplan las necesidades en los recursos de los servicios,
 * y, por otro lado, se respeten los acuerdos de nivel de servicio (ANS).
-* Además, el centro de procesamiento de datos quiere optimizar el número de ordenadores involucrados.
+* AdemÃ¡s, el centro de procesamiento de datos quiere optimizar el nÃºmero de ordenadores involucrados.
 * Cada servicio tiene las necesidades de recursos como CPU y RAM requeridos,
 * y cada servidor tiene ciertos recursos de cada tipo para ofrecer.
-* En las tablas de la parte inferior se indican las características
+* En las tablas de la parte inferior se indican las caracterÃ­sticas
 * tanto de los servidores, como de los servicios.
 * El centro de procesamiento de datos dispone de tres tipos de servidores,
-* véase Tabla 1.
+* vÃ©ase Tabla 1.
 
-* Tipo        Número de servidores        CPU (GIPS) por servidor        RAM(GB)
+* Tipo        NÃºmero de servidores        CPU (GIPS) por servidor        RAM(GB)
 * por servidor
 * 1        1        6        12
 * 2        2        4        10
 * 3        2        3        8
-* Tabla 1. Tipos de servidores, su número y sus características.
+* Tabla 1. Tipos de servidores, su nÃºmero y sus caracterÃ­sticas.
 
-* Por otro lado, hay tres tipos de servicios, cada tipo con su demanda de recursos, véase Tabla 2.
+* Por otro lado, hay tres tipos de servicios, cada tipo con su demanda de recursos, vÃ©ase Tabla 2.
 
-* Tipo        Número de servicios        Uso de CPU (GIPS) por servicio        Uso de RAM (GB) por servicio
+* Tipo        NÃºmero de servicios        Uso de CPU (GIPS) por servicio        Uso de RAM (GB) por servicio
 * 1        3        1,7        2
 * 2        3        1,5        3
 * 3        3        1        4
-* Tabla 2. Tipos de servicios, número de servicios de cada tipo, y sus requisitos.
+* Tabla 2. Tipos de servicios, nÃºmero de servicios de cada tipo, y sus requisitos.
 
-* Se supone que cada servicio debe asignarse a un único servidor.
+* Se supone que cada servicio debe asignarse a un Ãºnico servidor.
 * Los acuerdos de nivel de servicio (SLA) implican que
 * la carga de los ordenadores debe estar equilibrada.
 * Este requisito se plasma en el siguiente objetivo:
-* se requiere minimizar la máxima ocupación relativa de cada recurso
-* en cada máquina. Por la ocupación relativa de un recurso en una maquina
-* se entiende la ratio de la ocupación del recurso en la máquina
-* entre la disponibilidad máxima del mismo.
+* se requiere minimizar la mÃ¡xima ocupaciÃ³n relativa de cada recurso
+* en cada mÃ¡quina. Por la ocupaciÃ³n relativa de un recurso en una maquina
+* se entiende la ratio de la ocupaciÃ³n del recurso en la mÃ¡quina
+* entre la disponibilidad mÃ¡xima del mismo.
 * El segundo objetivo del centro de procesamiento es
-* minimizar el número de ordenadores que se ocupan por indicados servicios.
+* minimizar el nÃºmero de ordenadores que se ocupan por indicados servicios.
 * Aproximad la frontera de Pareto.
 
 Sets
@@ -86,8 +86,8 @@ loop(j,
 );
 
 Free Variables
-         nServidores número de ordenadores involucrados
-         maxRelOcc la máxima ocupación relativa de cada recurso en cada máquina
+         nServidores nÃºmero de ordenadores involucrados
+         maxRelOcc la mÃ¡xima ocupaciÃ³n relativa de cada recurso en cada mÃ¡quina
 ;
 
 Binary Variables
@@ -98,8 +98,8 @@ Binary Variables
 Equations
          numeroDeServidores numero de servidores involucrados
          ANS(i, num, r) la capacidad de servidor se cumplan las necesidades en los recursos de los servicios
-         servicio(j, num) cada servicio debe asignarse a un único servidor
-         SLA(i, num, r) la máxima ocupación relativa
+         servicio(j, num) cada servicio debe asignarse a un Ãºnico servidor
+         SLA(i, num, r) la mÃ¡xima ocupaciÃ³n relativa
 ;
 
 * coding area
